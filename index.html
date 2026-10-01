@@ -16,6 +16,13 @@
         <p style="color: #68758a; font-size: 13px;">서버가 꺼져 있으면 프로젝트 폴더에서 <code>npm.cmd run dev</code>를 실행한 뒤 표시된 Local 주소를 여세요.</p>
       </main>
     </div>
+    <script>
+      if (window.location.protocol === 'file:') {
+        fetch('http://localhost:5174/', { mode: 'no-cors' })
+          .then(() => window.location.replace('http://localhost:5174/'))
+          .catch(() => {})
+      }
+    </script>
     <script type="module" src="./src/main.jsx"></script>
   </body>
 </html>
