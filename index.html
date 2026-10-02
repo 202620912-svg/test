@@ -10,11 +10,21 @@
   <body>
     <div id="root">
       <main style="max-width: 560px; margin: 12vh auto; padding: 32px; border: 1px solid #e5e7eb; border-radius: 12px; color: #263247; font-family: 'Malgun Gothic', sans-serif; line-height: 1.7;">
-        <h1 style="font-size: 22px;">기능사 노트를 불러오는 중입니다.</h1>
-        <p>화면이 계속 표시되면 브라우저에서 JavaScript를 사용할 수 있는지 확인해 주세요.</p>
+        <h1 style="font-size: 22px;">기능사 노트 웹 앱으로 이동합니다.</h1>
+        <p>아래 링크에서 배포된 앱을 열 수 있습니다.</p>
+        <p><a href="https://202620912-svg.github.io/test/dist/">기능사 노트 열기</a></p>
       </main>
     </div>
     <noscript>기능사 노트를 사용하려면 브라우저에서 JavaScript를 활성화해야 합니다.</noscript>
     <script type="module" src="./src/main.jsx"></script>
+    <script>
+      const sourceEntry = document.querySelector('script[type="module"][src="./src/main.jsx"]')
+      const unbuiltGitHubPage = window.location.hostname === '202620912-svg.github.io'
+        && window.location.pathname === '/test/'
+        && sourceEntry
+      if (window.location.protocol === 'file:' || unbuiltGitHubPage) {
+        window.location.replace('https://202620912-svg.github.io/test/dist/')
+      }
+    </script>
   </body>
 </html>
